@@ -1,0 +1,31 @@
+Source: mockpp
+Priority: extra
+Maintainer: Yadickson Soto <yadickson@gmail.com>
+Build-Depends: debhelper (>= 9), dh-autoreconf (>= 2),
+ autotools-dev,
+ libcppunit-dev (>= 1.12.1)
+Standards-Version: 3.8.3
+Section: libs
+Homepage: http://sourceforge.net/projects/mockpp/
+
+Package: libmockpp-dev
+Section: libdevel
+Multi-Arch: same
+Architecture: any
+Depends: libmockpp36 (= ${binary:Version})
+Description: Mock Objects for C++ headers
+ Headers files for Mock Objects for C++.
+
+Package: libmockpp36
+Section: libs
+Multi-Arch: same
+Pre-Depends: ${misc:Pre-Depends}
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: Mock Objects for C++
+ mockpp is a platform independent generic
+ unit testing framework for C++.
+ Its goal is to facilitate developing
+ unit tests in the spirit of 
+ Mock Objects for Java, EasyMock and jMock.
+

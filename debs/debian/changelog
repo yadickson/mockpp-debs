@@ -1,0 +1,23 @@
+mockpp (1.16.6-4) UNRELEASED; urgency=medium
+
+  * Update debian package library name
+
+ -- Yadickson Soto <yadickson@gmail.com>  Mon, 09 May 2016 23:16:46 -0300
+
+mockpp (1.16.6-3) unstable; urgency=medium
+
+  * Removed 3party code
+
+ -- Yadickson Soto <yadickson@gmail.com>  Mon, 09 May 2016 22:36:47 -0300
+
+mockpp (1.16.6-2) unstable; urgency=low
+
+  * New upstream release.
+
+ -- Yadickson Soto <yadickson@gmail.com>  Tue, 05 Feb 2013 14:18:26 -0430
+
+mockpp (1.16.6-1) unstable; urgency=low
+
+  * Initial release
+
+ -- Yadickson Soto <yadickson@gmail.com>  Tue, 05 Feb 2013 13:56:29 -0430

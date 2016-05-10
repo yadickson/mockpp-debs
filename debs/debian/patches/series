@@ -1,0 +1,3 @@
+fix_mock_invocation.patch
+add_missing_cppunit_support.patch
+remove_3party.patch

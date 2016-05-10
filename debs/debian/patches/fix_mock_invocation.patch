@@ -1,0 +1,29 @@
+--- a/mockpp/chaining/CoreMock.h
++++ b/mockpp/chaining/CoreMock.h
+@@ -79,7 +79,7 @@ class CoreMock : public AbstractDynamicC
+     */
+     R invoke( const I &invocation )
+     {
+-      return mockInvocation( invocation );
++      return this->mockInvocation( invocation );
+     }
+ };
+ 
+@@ -121,7 +121,7 @@ class CoreMock<void, I> : public Abstrac
+     */
+     void invoke( const I &invocation )
+     {
+-      mockInvocation( invocation );
++      this->mockInvocation( invocation );
+     }
+ };
+ 
+@@ -156,7 +156,7 @@ class CoreMock<void, I> : public Abstrac
+   \
+   void invoke( const I &invocation ) \
+   { \
+-    mockInvocation( invocation ); \
++    this->mockInvocation( invocation ); \
+   } \
+ }; \
+ MOCKPP_NS_END

@@ -1,0 +1,20 @@
+Format: http://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: mockpp
+Upstream-Contact: Ewald Arnold <mockpp@ewald-arnold.de>
+Source: http://sourceforge.net/projects/mockpp/
+
+Files: *
+Copyright: 	2002-2010 by Ewald Arnold
+License: LGPL-2
+
+Files: debian/*
+Copyright: 2016, Yadickson Soto <yadickson@gmail.com>
+License: GPL-3
+
+License: LGPL-2
+ On Debian systems, the full text of the LGPL-2 license
+ can be found in the file '/usr/share/common-licenses/LGPL-2'
+
+License: GPL-3
+ On Debian systems, the full text of the GPL-3 license
+ can be found in the file '/usr/share/common-licenses/GPL-3'
