@@ -12,7 +12,7 @@ env:
   - BINTRAY_USER=yadickson
   - GITHUB_NAME=yadickson
   - GITHUB_EMAIL=yadickson@gmail.com
-  - PACKAGE_LICENSE=EPL-1.0
+  - PACKAGE_LICENSE=LGPL-2
   - PACKAGE_NAME=$(dpkg-parsechangelog | awk '/^Source:/ { print $2 }')
   - PACKAGE_VERSION=$(dpkg-parsechangelog | awk '/^Version:/ { print $2 }' | sed 's/-.*//')
   - PACKAGE_DISTRIBUTION=$(dpkg-parsechangelog | awk '/^Distribution:/ { print $2 }')
@@ -37,14 +37,14 @@ deploy:
     file: ".travis.bintray.json"
     user: "${BINTRAY_USER}"
     key:
-      secure: MyTW7Fn1+xh0e5VSpwQKiLLaQkV8iFMWI0dp/9vHxHfCyRTH7YDTU95Cg4z+aa25boWI/md/fwrG18XFxwl3OedRCE9FGyzBLV04+uUHK7YXANRMXGVf0Bc6DXbQknBZpYchhotuQqphkIvKVGDG/gjpBURRkxf+EymyMu0g0B1lnkVkUpBnUQgDAEqSnGLNsnKZl72XibsnJYoA8yc5WjHIHXVUNCeDEsZHHSYpdUQYzHU/vFeFvd11IZmd9RlZSeGGGSfJpiAV7m8+SO+ppnxeQC7ZUMlhbe3IKXgcNPH/Brtp0oZy+v3cT+HO3YZPsvc9AsqmHxSvO3SqY8cTvOgMnjyb/SvdgE4Lt84cRNSD7rtvUrymbUUO/KxXiQSS79fP3AICTR97Blt/1vMfDPiOUUU+SDaeHkTRz8WS4KXVtXYzwON0KtLaqDZqiTTifKUUFQaW9S/+teUAcsaWFAb9o8mVfCpPMO82sAyCG8O5pvh+gpMuA69IPMADPxfIyRVFuVFAREPyAzMpUiSGujrMalxkoO3VghBVSZ3r0zJ2w1KxyLf2D2zr/yE1kQJj/DmMetbM4lE8tLXwyHyZ7uAnNjQnf5TthhJE9XrmZRctBnowJtWagK9ZA6FkQ9vOY5pXQCb2rcnf7lDXGkFrQvy2AL8MLwceKWKdRB6L9Ms=
+      secure: C7//qLocSfULD+1xMxb67GWYlF5rDCv6N1rEp2SlspyLYMWtzFWarsW+76FPWlusvNijQjWr5CGiBCRHCMveFl8gYWYL4DvezI2ELAsFEq7xWYenjk62v+q9p0zaZQi4NBK4Gn+nbld9pD2Donz7EaWr2m2du/Qkxn9uwtmECGYO3drYCOsW/Gmc6EbzKwUMLb5KpFtOFN9pQgVBp5MEAngUjFVyZVTYBRdrB6e5rZIxeMIIeTXa6YBoL/a8rYAKQTU+1Xc1uFwc44pF+dis+qKP5DdAbPcG76M0FRA9IGvpidcQ7sQ5y/9evjeuPZarXg7ModI00bmMlqIZiABBDshBQV/KhgvB2GsG0cZ9lWWVgYPzZNt8XUC/i1WtRAKWHsKGhf8c46rF6LiSRDM0ahr2+vnBhOit1XF8lHTVDKWn8ZMmKBDThoMHxis/mmtAgRPPgql1jxAYtjcAZCBaNBlYTPHXXJXlCSElUlDr+DIXutFqGfVDQrdYrI19WYzRnaQXK+O4LNPgcR6pQMZL/Pw+dBC+cUxLYRAk/YSTqRS9jHeC6CvlVFAZNBJA2JrG9Zlx2WwNbYBcGVq1CJdHi4p9ToMnl8VSYKKAh/JXGS0dfANyvIBSj8h7bReSZAfoWj5UsaqMqJbCACsggwtS3qHERwo7SPgVL7eIcoKoMJg=
     passphrase: Optional
     skip_cleanup: true
     on:
       tags: true
   - provider: releases
     api_key:
-      secure: OHQNJV/WS6NfmTaSiINMzJHaw3bvI6sG6ncnWBT24/37Vjt1vNKVobewR7ot5gTdhtWLD3ZeQN/mXzbXJlyuRaBegocfEqRHUaLjw6d9IfGW40Iiw0/ssdrTUb2pXqOoyL1YaDLrAPtW/j7IIBkrSANVqr5gx9Tg8Gsi9cpo/vhviMclGCIwWXfPZjFvWe4Nn0HwfI3VRQTaU8yUNetU5vfoPZhJuHnqFSRnEJwc3ZXI7VbMjGJm7sSnTM8QIeqTRax6IbM4BY7D1wBD0zgSzZKdEL71hPbhPwK/8KtapSIKNh92P9GZbebOoqgD+cokuC70rzioFPdYk41zCOaeUWrkY3wF1jevduSasfB+w+Wb2mhZy/KCK/78g0zNdclyP8AYQfFSRBY7IyG0q7AkQ/BFgZSdu+RYe2Vfe7M5C8nxpxLNrjRpZlXcY8wcDfrSw/2zvslV4esm1Wo+q2Dg03FkkaeSxuFwDahmnyH+eozKpUZ0HH8Jnjuwh9i7raTes+4wK0i1ldtVxxAJVNyNf4uoyChy/0AmjLXHerHbKGsCQypvOrP2djyaagmy2WxD55+LsRD7qVVTCnoUmI3nI8gtIBqdOiK2UuwIevIC4QkhYl/1/s9Jx0NNOjpMrAIEUZZf4kx4aJ8VzrUdizookI1Y06RuOlT+p7BwtYeNBz0=
+      secure: vYl9amjY4N39vFtHEO8w/VURvWBehLn0IJGIZmnw1z6mjZ148iYtEtLyQvmax/zirlzpXn+k9PznRLnfhDpZMUK/P9jVF4Ym24+Mquge+73jDK61mhaTbMPSjB8T+8/F+UyLLv6x7oYE68HMf9pRO3s49CgjJWdzmDM0PsurbrTU/Y0Pn3LwPuPz+wspRbgCcyDxEom1Cq1/FapFyOKP0yAusEVpvFZtlzcKrLghomS7yXt4m+ExOO6JNjmFOCaBuYti57VhSQpF80BjEmAmjXg4tNOTr6aUf43RJUh7eBLUkJt2xqmwguiQnzkPirgXga8olVB5MaEQEVJKT5tk18p3nVsQZG6addAiP2tMUoRDRzyVwSU6Iuw+RL8g5w3rqc4SRNH99DMEU5DaNDiSWbxEtLGPJEnGSWM8bp0tdKYcOi3chZsTWVfUWLo++7ANq35EZPRRPm5Cx6LMDJ3Zf6v7j24URF8ZBI38vTxtfhOcoQLsCLQZEyP+xeGqwXLJBI2zehqrucVaAW5IrxmShONH3ZLSGUHziTb7i+Iqt7x3MgMK1EJ9gwGreuw8GYDfwX1uhLsw/zyQr9ES5takonhMgm62XzjUZ71SA/dGHXDfEmddPkqq0aW2oZ0oGqImFy5pUa5RH1/Je6HO5tuG3cTGTCnDcvIZqTY7bS6izHs=
     file_glob: true
     file:
       - ../*.orig.tar.*
