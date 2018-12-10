@@ -6,7 +6,5 @@ debian/*.substvars
 .travis.bintray.json
 .pc/
 *.m4
-Makefile*
-config/
-*-linux-gnu/
-config.h*
+config.h.in
+Makefile.in
