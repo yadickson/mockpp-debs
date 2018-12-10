@@ -13,8 +13,6 @@
 
 - unzip
 - wget
-- libc-bin
-- dos2unix
 
 ```
 $ debian/rules get-orig-source
@@ -44,7 +42,7 @@ $ fakeroot debian/rules clean binary
 $ echo "deb [trusted=true] https://dl.bintray.com/yadickson/debian [distribution] main" | sudo tee -a /etc/apt/sources.list.d/bintray.list
 $ sudo apt-get update
 $ sudo apt-get upgrade -y
-$ sudo apt-get install libpf-java
+$ sudo apt-get install libmockpp-dev
 ```
 
 ## License
