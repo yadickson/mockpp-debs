@@ -1,0 +1,14 @@
+--- a/mockpp/tests/Makefile.am
++++ b/mockpp/tests/Makefile.am
+@@ -37,9 +37,9 @@
+ 
+ ###########################################################################
+ 
+-AM_LDFLAGS     = $(all_libraries)
++AM_LDFLAGS     = $(all_libraries) $(CPPUNIT_LIBS)
+ 
+-AM_CXXFLAGS = -I$(QTDIR)/include -I/usr/X11R6/include
++AM_CXXFLAGS = -I$(QTDIR)/include -I/usr/X11R6/include $(CPPUNIT_CFLAGS)
+ 
+ ###########################################################################
+ 
