@@ -1,0 +1,49 @@
+--- a/acinclude.m4
++++ b/acinclude.m4
+@@ -1,3 +1,4 @@
+ sinclude(config/ac_cxx_rtti.m4)
+ sinclude(config/ac_cxx_except.m4)
+ sinclude(config/ac_cxx_boosttest.m4)
++sinclude(config/cppunit.m4)
+--- a/config/Makefile.am
++++ b/config/Makefile.am
+@@ -1 +1 @@
+-EXTRA_DIST = ac_cxx_rtti.m4 ac_cxx_except.m4 ac_cxx_boosttest.m4
++EXTRA_DIST = ac_cxx_rtti.m4 ac_cxx_except.m4 ac_cxx_boosttest.m4 cppunit.m4
+--- /dev/null
++++ b/config/cppunit.m4
+@@ -0,0 +1,34 @@
++dnl
++dnl AM_PATH_CPPUNIT(MINIMUM-VERSION, [ACTION-IF-FOUND [, ACTION-IF-NOT-FOUND]])
++dnl
++AC_DEFUN([AM_PATH_CPPUNIT],
++[
++
++  AC_PATH_PROG(PKG_CONFIG, pkg-config, no)
++  cppunit_version_min=$1
++
++  AC_MSG_CHECKING(for Cppunit - version >= $cppunit_version_min)
++  no_cppunit=""
++  if test "$PKG_CONFIG" = "no" ; then
++    AC_MSG_RESULT(no)
++    no_cppunit=yes
++  else
++    CPPUNIT_CFLAGS=`$PKG_CONFIG cppunit --cflags`
++    CPPUNIT_LIBS=`$PKG_CONFIG cppunit --libs`
++    AC_MSG_RESULT(yes)
++  fi
++
++  if test "x$no_cppunit" = x ; then
++     ifelse([$2], , :, [$2])     
++  else
++     CPPUNIT_CFLAGS=""
++     CPPUNIT_LIBS=""
++     ifelse([$3], , :, [$3])
++  fi
++
++  AC_SUBST(CPPUNIT_CFLAGS)
++  AC_SUBST(CPPUNIT_LIBS)
++])
++
++
++

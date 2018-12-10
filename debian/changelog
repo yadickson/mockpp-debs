@@ -1,3 +1,9 @@
+mockpp (1.16.6-5) buster; urgency=medium
+
+  * Upgrade release. 
+
+ -- Yadickson Soto <yadickson@gmail.com>  Mon, 10 Dec 2018 16:31:26 -0300
+
 mockpp (1.16.6-4) stretch; urgency=medium
 
   * Upgrade release.
