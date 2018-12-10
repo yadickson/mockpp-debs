@@ -1,8 +1,8 @@
 --- a/configure.in
 +++ b/configure.in
-@@ -664,13 +664,6 @@
+@@ -667,13 +667,6 @@
    \
-   Makefile \
+   config/Makefile \
    \
 -  mockpp/docs/Makefile \
 -  mockpp/docs/api/Makefile \

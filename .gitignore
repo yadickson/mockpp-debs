@@ -7,9 +7,7 @@ debian/autoreconf.after
 debian/autoreconf.before
 .travis.bintray.json
 .pc/
-*.m4
 *~
-config/
 config.h.in
 Makefile.in
 a.out

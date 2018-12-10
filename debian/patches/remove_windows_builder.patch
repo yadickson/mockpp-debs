@@ -2,7 +2,7 @@
 +++ b/Makefile.am
 @@ -1,4 +1,4 @@
 -SUBDIRS = tool config mockpp bcb5 bcb10 msvc71 msvc8 generator
-+SUBDIRS = mockpp
++SUBDIRS = config mockpp
  
  ACLOCAL_AMFLAGS = -I config
  
@@ -39,15 +39,7 @@
  #################################################################
 --- a/configure.in
 +++ b/configure.in
-@@ -537,7 +537,6 @@
- 
- # ----------------------------------------------------------------------------
- 
--AC_CXX_RTTI
- AC_C_BIGENDIAN_CROSS
- 
- EA_DISABLE_EXCEPTIONS
-@@ -665,36 +664,6 @@
+@@ -665,35 +665,7 @@
    \
    Makefile \
    \
@@ -63,7 +55,7 @@
 -  bcb5/Makefile \
 -  bcb10/Makefile \
 -  \
--  config/Makefile \
+   config/Makefile \
 -  tool/Makefile \
 -  \
 -  msvc71/Makefile \
@@ -80,7 +72,6 @@
 -  msvc8/mockpp/examples/Makefile \
 -  msvc8/mockpp/examples/tutorial/Makefile \
 -  msvc8/mockpp/tests/Makefile \
--  \
+   \
    mockpp/docs/Makefile \
    mockpp/docs/api/Makefile \
-   mockpp/docs/en/Makefile \
