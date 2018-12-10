@@ -33,6 +33,7 @@ $ fakeroot debian/rules clean binary
 **Tested**
 
 - Debian wheezy
+- Debian jessie
 
 **Repositories**
 

@@ -1,3 +1,9 @@
+mockpp (1.16.6-3) jessie; urgency=medium
+
+  * Upgrade release.
+
+ -- Yadickson Soto <yadickson@gmail.com>  Mon, 10 Dec 2018 15:17:14 -0300
+
 mockpp (1.16.6-2) wheezy; urgency=medium
 
   * Upgrade release.
