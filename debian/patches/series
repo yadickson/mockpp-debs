@@ -3,3 +3,4 @@ add_missing_cppunit_support.patch
 remove_3party.patch
 remove_windows_builder.patch
 remove_doc.patch
+remove_config_folder.patch
