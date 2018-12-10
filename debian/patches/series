@@ -1,0 +1,6 @@
+fix_mock_invocation.patch
+add_missing_cppunit_support.patch
+remove_3party.patch
+remove_windows_builder.patch
+remove_doc.patch
+update_makefiles.patch

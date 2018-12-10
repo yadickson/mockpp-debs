@@ -1,0 +1,77 @@
+--- a/Makefile.am
++++ b/Makefile.am
+@@ -1,4 +1,4 @@
+-SUBDIRS = tool config mockpp bcb5 bcb10 msvc71 msvc8 generator
++SUBDIRS = config mockpp
+ 
+ ACLOCAL_AMFLAGS = -I config
+ 
+@@ -9,21 +9,12 @@
+ 
+ EXTRA_DIST = \
+   CMakeLists.txt \
+-  bug-report \
+   mockpp.pc.in \
+   configure.in \
+   mockpp.doxygen.in \
+-  mockpp.kdevelop \
+   AUTHORS \
+-  COPYING \
+-  ChangeLog \
+-  INSTALL \
+   README \
+-  TODO \
+-  Makefile.cvs \
+-  mockpp.lsm \
+-  gen_files_N.sh \
+-  acinclude.m4
++  gen_files_N.sh
+ 
+ CLEANFILES = *.~* *.~~* *~ cachegrind.out.*
+ 
+@@ -111,6 +102,6 @@
+ 
+ install-data-hook:
+ 	$(mkdir_p) $(htmldir)
+-	$(INSTALL) $(srcdir)/AUTHORS $(srcdir)/COPYING $(srcdir)/README $(srcdir)/ChangeLog   $(DESTDIR)$(pkgdatadir)
++	$(INSTALL) $(srcdir)/AUTHORS $(DESTDIR)$(pkgdatadir)
+ 
+ #################################################################
+--- a/configure.in
++++ b/configure.in
+@@ -665,35 +665,7 @@
+   \
+   Makefile \
+   \
+-  generator/Makefile \
+-  generator/mockpp2xml/Makefile \
+-  generator/xml2mockpp/Makefile \
+-  generator/xml2mockpp/expat/Makefile \
+-  generator/xml2mockpp/new-visit-meth/Makefile \
+-  generator/xml2mockpp/new-chain-meth/Makefile \
+-  generator/xml2mockpp/orig-visit-meth/Makefile \
+-  generator/xml2mockpp/orig-chain-meth/Makefile \
+-  \
+-  bcb5/Makefile \
+-  bcb10/Makefile \
+-  \
+   config/Makefile \
+-  tool/Makefile \
+-  \
+-  msvc71/Makefile \
+-  msvc71/lib/Makefile \
+-  msvc71/mockpp/Makefile \
+-  msvc71/mockpp/examples/Makefile \
+-  msvc71/mockpp/examples/tutorial/Makefile \
+-  msvc71/mockpp/tests/Makefile \
+-  \
+-  msvc8/Makefile \
+-  msvc8/lib/Makefile \
+-  msvc8/mockpp/Makefile \
+-  msvc8/generator/Makefile \
+-  msvc8/mockpp/examples/Makefile \
+-  msvc8/mockpp/examples/tutorial/Makefile \
+-  msvc8/mockpp/tests/Makefile \
+   \
+   mockpp/docs/Makefile \
+   mockpp/docs/api/Makefile \

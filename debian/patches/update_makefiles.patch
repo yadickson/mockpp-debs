@@ -1,0 +1,205 @@
+--- a/config/Makefile.am
++++ b/config/Makefile.am
+@@ -1 +1 @@
+-EXTRA_DIST = CMakeLists.txt ac_cxx_rtti.m4 ac_cxx_except.m4
+\ No newline at end of file
++EXTRA_DIST = ac_cxx_rtti.m4 ac_cxx_except.m4 ac_cxx_boosttest.m4
+--- a/Makefile.am
++++ b/Makefile.am
+@@ -8,7 +8,6 @@
+ 	$(SHELL)  ./config.status --recheck
+ 
+ EXTRA_DIST = \
+-  CMakeLists.txt \
+   mockpp.pc.in \
+   configure.in \
+   mockpp.doxygen.in \
+--- a/mockpp/constraint/Makefile.am
++++ b/mockpp/constraint/Makefile.am
+@@ -10,10 +10,6 @@
+ 		TypelessConstraint.h ConstraintHolder.h ConstraintList.h TriggeredConstraint.h \
+ 	TriggeredOutbound.h
+ 
+-EXTRA_DIST = \
+-  CMakeLists.txt \
+-  gen_constraintset_N.pl
+-
+ CLEANFILES = *.~* *.~~* *~ *.old
+ 
+ libconstraintincludedir = $(includedir)/mockpp/constraint
+--- a/mockpp/matcher/Makefile.am
++++ b/mockpp/matcher/Makefile.am
+@@ -1,8 +1,6 @@
+ INCLUDES = $(all_includes) -I$(top_srcdir) -I$(top_builddir) $(EA_EXTRA_INC)
+ DEFAULT_INCLUDES = $(INCLUDES)
+ 
+-EXTRA_DIST = CMakeLists.txt
+-
+ noinst_LTLIBRARIES = libmatcher.la
+ 
+ libmatcherinclude_HEADERS = AnyArgumentsMatcher.h ArgumentsMatcher.h \
+--- a/mockpp/config/Makefile.am
++++ b/mockpp/config/Makefile.am
+@@ -1 +1 @@
+-EXTRA_DIST = gen-config-common.sh CMakeLists.txt
++EXTRA_DIST = gen-config-common.sh
+--- a/mockpp/po/Makefile.am
++++ b/mockpp/po/Makefile.am
+@@ -1,5 +1,4 @@
+ # $(srcdir)/$(PACKAGE).pot $(POTEMPLATES) $(GMOFILES)
+-EXTRA_DIST = CMakeLists.txt
+ 
+ GMOFILES      = de.gmo
+ POTEMPLATES   = $(GMOFILES:.gmo=.po)
+--- a/mockpp/framework/Makefile.am
++++ b/mockpp/framework/Makefile.am
+@@ -8,8 +8,6 @@
+  SelectUnittestFramework.h \
+  VerifyingTestCase.h VerifyingTestCaller.h
+ 
+-EXTRA_DIST = CMakeLists.txt
+-
+ libframeworkincludedir = $(includedir)/mockpp/framework
+ 
+ CLEANFILES = *.~* *.~~* *~ *.old
+--- a/mockpp/Makefile.am
++++ b/mockpp/Makefile.am
+@@ -32,13 +32,6 @@
+ 		TrackingCounter.h MixedMockObject.h mockpp_dbc.h MockTimeServer.h \
+ 	CountParameters.h
+ 
+-EXTRA_DIST = \
+-   CMakeLists.txt \
+-   mockpp_config-bcb5.h \
+-   mockpp_config-msvc_71.h \
+-   gen_countparams_N.pl \
+-   install-win.bat
+-
+ CLEANFILES = *.~* *.~~* *~ mockpp_config.h *.old
+ 
+ .PHONY: chainer mockpp_config-bcb5.h mockpp_config-msvc_71.h mockpp_config.h metrics templates
+--- a/mockpp/stub/Makefile.am
++++ b/mockpp/stub/Makefile.am
+@@ -12,9 +12,4 @@
+ 
+ CLEANFILES = *.~* *.~~* *~ *.old
+ 
+-EXTRA_DIST = \
+-   CMakeLists.txt \
+-   gen_returntriggerstub_N.pl \
+-   gen_triggerstub_N.pl
+-
+ libstub_la_SOURCES = VoidStub.cpp
+--- a/mockpp/production/Makefile.am
++++ b/mockpp/production/Makefile.am
+@@ -1,8 +1,6 @@
+ INCLUDES = $(all_includes) -I$(top_srcdir) -I$(top_builddir) $(EA_EXTRA_INC)
+ DEFAULT_INCLUDES = $(INCLUDES)
+ 
+-EXTRA_DIST = CMakeLists.txt
+-
+ lib_LTLIBRARIES = libmockpp_production.la
+ 
+ libmockpp_production_la_LDFLAGS = -no-undefined -version-info \
+--- a/mockpp/util/Makefile.am
++++ b/mockpp/util/Makefile.am
+@@ -1,8 +1,6 @@
+ INCLUDES = $(all_includes) -I$(top_srcdir) -I$(top_builddir) $(EA_EXTRA_INC)
+ DEFAULT_INCLUDES = $(INCLUDES)
+ 
+-EXTRA_DIST = CMakeLists.txt
+-
+ noinst_LTLIBRARIES = libutil.la
+ 
+ libutil_la_SOURCES = \
+--- a/mockpp/chaining/Makefile.am
++++ b/mockpp/chaining/Makefile.am
+@@ -20,14 +20,6 @@
+       ReturnValueAndTrigger.h ReturnValueAndCall.h \
+       InvocationN.h OnConsecutiveCalls.h
+ 
+-EXTRA_DIST = \
+-   CMakeLists.txt \
+-   gen_chainablemethod_N.pl \
+-   gen_countchainable_N.pl \
+-   gen_consecutive_N.pl \
+-   gen_invocation_N.pl \
+-   gen_returntrigger_N.pl
+-
+ libchainingincludedir = $(includedir)/mockpp/chaining
+ 
+ CLEANFILES = *.~* *.~~* *~ *.old
+--- a/mockpp/examples/Makefile.am
++++ b/mockpp/examples/Makefile.am
+@@ -1,8 +1,6 @@
+ INCLUDES = $(all_includes) -I$(top_srcdir) -I$(top_builddir) $(EA_EXTRA_INC)
+ DEFAULT_INCLUDES = $(INCLUDES)
+ 
+-EXTRA_DIST = CMakeLists.txt
+-
+ SUBDIRS= tutorial
+ 
+ noinst_PROGRAMS  = mock_greeter
+--- a/mockpp/examples/tutorial/Makefile.am
++++ b/mockpp/examples/tutorial/Makefile.am
+@@ -9,10 +9,8 @@
+                    basicmock poormock poormock-se cppunit verifying
+ 
+ EXTRA_DIST = \
+-  CMakeLists.txt \
+   tutorial.doxygen.in \
+   tutorial.mak \
+-  tutorial.kdevelop \
+   interface.h \
+   Calculator.h \
+   consumer.h \
+--- a/mockpp/compat/Makefile.am
++++ b/mockpp/compat/Makefile.am
+@@ -1,8 +1,6 @@
+ INCLUDES = $(all_includes) -I$(top_srcdir) -I$(top_builddir) $(EA_EXTRA_INC)
+ DEFAULT_INCLUDES = $(INCLUDES)
+ 
+-EXTRA_DIST = CMakeLists.txt
+-
+ noinst_LTLIBRARIES = libcompat.la
+ 
+ libcompat_la_SOURCES = \
+--- a/mockpp/tests/Makefile.am
++++ b/mockpp/tests/Makefile.am
+@@ -3,8 +3,6 @@
+ 
+ CLEANFILES = *.~* *.~~* *~  gmon.out *profil.txt *.bbg *.gcno *.gcda
+ 
+-EXTRA_DIST = CMakeLists.txt
+-
+ ###########################################################################
+ 
+ if WORKING_WIN32
+--- a/mockpp/builder/Makefile.am
++++ b/mockpp/builder/Makefile.am
+@@ -11,10 +11,6 @@
+ 
+ libbuilderincludedir = $(includedir)/mockpp/builder
+ 
+-EXTRA_DIST = \
+-   CMakeLists.txt \
+-   gen_argumentsmatchbuilder_N.pl
+-
+ CLEANFILES = *.~* *.~~* *~ *.old
+ 
+ noinst_LTLIBRARIES = libbuilder.la
+--- a/mockpp/visiting/Makefile.am
++++ b/mockpp/visiting/Makefile.am
+@@ -11,12 +11,6 @@
+ 	ResponseVector3.h ResponseVector4.h ResponseVector5.h ResponseVector6.h \
+ 	CountedVisitableMethod.h
+ 
+-EXTRA_DIST = \
+-   CMakeLists.txt \
+-   gen_visitablemethod_N.pl \
+-   gen_countvisitable_N.pl \
+-   gen_responsevector_N.pl
+-
+ libvisitingincludedir = $(includedir)/mockpp/visiting
+ 
+ CLEANFILES = *.~* *.~~* *~ *.old

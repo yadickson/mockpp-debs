@@ -1,0 +1,38 @@
+--- a/configure.in
++++ b/configure.in
+@@ -677,14 +677,6 @@
+   bcb5/Makefile \
+   bcb10/Makefile \
+   \
+-  3party/Makefile \
+-  3party/ministl/Makefile \
+-  3party/ministl/tests/Makefile \
+-  \
+-  3party/cxxtest/Makefile \
+-  3party/cxxtest/docs/Makefile \
+-  3party/cxxtest/cxxtest/Makefile \
+-  \
+   config/Makefile \
+   tool/Makefile \
+   \
+--- a/Makefile.am
++++ b/Makefile.am
+@@ -1,4 +1,4 @@
+-SUBDIRS = tool config 3party mockpp bcb5 bcb10 msvc71 msvc8 generator
++SUBDIRS = tool config mockpp bcb5 bcb10 msvc71 msvc8 generator
+ 
+ ACLOCAL_AMFLAGS = -I config
+ 
+--- a/mockpp/examples/Makefile.am
++++ b/mockpp/examples/Makefile.am
+@@ -5,10 +5,6 @@
+ 
+ SUBDIRS= tutorial
+ 
+-if BUILTIN_CXXTEST
+-cxxtest_lib=$(top_builddir)/3party/cxxtest/cxxtest/libmockpp_cxxtest.la
+-endif
+-
+ noinst_PROGRAMS  = mock_greeter
+ 
+ all: $(bin_PROGRAMS)

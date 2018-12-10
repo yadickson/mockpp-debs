@@ -1,0 +1,27 @@
+--- a/configure.in
++++ b/configure.in
+@@ -667,13 +667,6 @@
+   \
+   config/Makefile \
+   \
+-  mockpp/docs/Makefile \
+-  mockpp/docs/api/Makefile \
+-  mockpp/docs/en/Makefile \
+-  mockpp/docs/en/common/Makefile \
+-  mockpp/docs/en/images/Makefile \
+-  mockpp/docs/en/images/callouts/Makefile \
+-  \
+   mockpp/po/Makefile \
+   mockpp/config/Makefile \
+   mockpp/tests/Makefile \
+--- a/mockpp/Makefile.am
++++ b/mockpp/Makefile.am
+@@ -3,7 +3,7 @@
+ 
+ SUBDIRS = chaining visiting compat util builder constraint matcher stub \
+           production framework \
+-          . config docs tests po examples
++          . config tests po examples
+ 
+ lib_LTLIBRARIES = libmockpp.la
+ 
