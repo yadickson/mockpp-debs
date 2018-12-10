@@ -18,7 +18,7 @@ override_dh_auto_clean:
 	rm -f config.h.in
 	find . -name 'Makefile.in' -exec rm -f '{}' \;
 	rm -f a.out
-	rm -rf autom4te.cache/ config/
+	rm -rf autom4te.cache/
 	rm -f compile
 	rm -f config.guess
 	rm -f config.log

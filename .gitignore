@@ -9,6 +9,7 @@ debian/autoreconf.before
 .pc/
 *.m4
 *~
+config/
 config.h.in
 Makefile.in
 a.out
