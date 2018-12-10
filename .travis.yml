@@ -4,6 +4,7 @@ branches:
   only:
   - wheezy
   - jessie
+  - stretch
   - /^v[0-9].*$/
 services:
 - docker
