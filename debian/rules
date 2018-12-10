@@ -15,6 +15,20 @@ override_dh_auto_clean:
 	dh_auto_clean
 	rm -f a.out
 	rm -f config.log
+	rm -f config.h.in
+	find . -name 'Makefile.in' -exec rm -f '{}' \;
+	rm -f a.out
+	rm -rf autom4te.cache/ config/
+	rm -f compile
+	rm -f config.guess
+	rm -f config.log
+	rm -f config.sub
+	rm -f configure
+	rm -f depcomp
+	rm -f install-sh
+	rm -f ltmain.sh
+	rm -f missing
+	rm -f test-driver
 
 PKG  = $(word 2,$(shell dpkg-parsechangelog -ldebian/changelog | grep ^Source))
 VER ?= $(shell dpkg-parsechangelog -ldebian/changelog | perl -ne 'print $$1 if m{^Version:\s+(?:\d+:)?(\d.*)(?:\-\d+.*)};')

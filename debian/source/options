@@ -4,3 +4,6 @@ extend-diff-ignore = "^\.gitignore$"
 extend-diff-ignore = "^\.travis.bintray.json$"
 extend-diff-ignore = "^\.travis.bintray.json.in$"
 extend-diff-ignore = "^README.md$"
+extend-diff-ignore = "^config.h.in$"
+extend-diff-ignore = "^configure$"
+
