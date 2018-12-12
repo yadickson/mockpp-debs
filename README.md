@@ -59,6 +59,6 @@ GPL-3.0 © [Yadickson Soto](https://github.com/yadickson)
 
 LGPL-2 © [Ewald Arnold](http://sourceforge.net/projects/mockpp/)
 
-[travis-image]: https://api.travis-ci.org/yadickson/mockpp-debs.svg?branch=wheezy
+[travis-image]: https://api.travis-ci.org/yadickson/mockpp-debs.svg?branch=master
 [travis-url]: https://travis-ci.org/yadickson/mockpp-debs
 
