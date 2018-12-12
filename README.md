@@ -39,7 +39,12 @@ $ fakeroot debian/rules clean binary
 [Debian repository](https://bintray.com/yadickson/debian)
 
 ```
-$ echo "deb [trusted=true] https://dl.bintray.com/yadickson/debian [distribution] main" | sudo tee -a /etc/apt/sources.list.d/bintray.list
+$ wget -qO - https://bintray.com/user/downloadSubjectPublicKey?username=bintray | sudo apt-key add -
+```
+```
+$ echo "deb https://dl.bintray.com/yadickson/debian [distribution] main" | sudo tee -a /etc/apt/sources.list.d/bintray.list
+```
+```
 $ sudo apt-get update
 $ sudo apt-get upgrade -y
 $ sudo apt-get install libmockpp-dev

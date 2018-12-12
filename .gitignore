@@ -5,6 +5,7 @@ debian/*.log
 debian/*.substvars
 debian/autoreconf.after
 debian/autoreconf.before
+debian/tmp/
 .travis.bintray.json
 .pc/
 *~
