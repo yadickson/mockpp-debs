@@ -1,12 +1,5 @@
 sudo: required
 language: generic
-branches:
-  only:
-  - wheezy
-  - jessie
-  - stretch
-  - buster
-  - /^v[0-9].*$/
 services:
 - docker
 env:
