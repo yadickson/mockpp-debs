@@ -1,9 +1,5 @@
 sudo: required
 language: generic
-branches:
-  only:
-  - wheezy
-  - /^v[0-9].*$/
 services:
 - docker
 env:
