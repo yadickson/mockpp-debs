@@ -52,6 +52,7 @@ mockpp/examples/tutorial/chainmock2
 mockpp/examples/tutorial/cppunit
 mockpp/examples/tutorial/poormock
 mockpp/examples/tutorial/poormock-se
+mockpp/mockpp_config.h
 mockpp/examples/tutorial/verifying
 mockpp/examples/tutorial/visitmock
 mockpp/examples/tutorial/visitmock2
