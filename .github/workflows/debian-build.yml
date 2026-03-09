@@ -6,7 +6,7 @@ jobs:
   build:
     strategy:
       matrix:
-        suite: [stable]
+        suite: [bullseye, bookworm, trixie, forky]
         architecture: [amd64]
         
     runs-on: ubuntu-latest
