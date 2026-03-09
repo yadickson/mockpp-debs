@@ -24,6 +24,6 @@ jobs:
         env:
           DEB_BUILD_OPTIONS: noautodbgsym
         with:
-          buildpackage-opts: --build=binary --no-sign
-          docker-image: debian/${{ matrix.suite }}-slim
+          buildpackage-opts: --build=binary --no-sign -us -uc
+          docker-image: ${{ matrix.suite }}-slim
           host-arch: ${{ matrix.architecture }}
