@@ -19,7 +19,9 @@ jobs:
       
       - name: Build Debian package for ${{ matrix.suite }} on ${{ matrix.architecture }}
         uses: jtdor/build-deb-action@v1
+        env:
+          DEB_BUILD_OPTIONS: noautodbgsym
         with:
-          suite: ${{ matrix.suite }}
+          buildpackage-opts: --build=binary --no-sign
+          docker-image: debian/${{ matrix.suite }}-slim
           host-arch: ${{ matrix.architecture }}
-          args: "-us -uc" 
