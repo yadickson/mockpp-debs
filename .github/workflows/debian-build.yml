@@ -14,20 +14,8 @@ jobs:
       - name: checkout source code
         uses: actions/checkout@v4
 
-      - name: Set up QEMU for cross-building (if needed)
-        uses: docker/setup-qemu-action@v3
-        with:
-          platforms: all
-
       - name: Build Debian package for ${{ matrix.suite }} on ${{ matrix.architecture }}
-        uses: jtdor/build-deb-action@v1
-        env:
-          DEB_BUILD_OPTIONS: noautodbgsym
+        uses: dawidd6/action-debian-package@v4
         with:
-          buildpackage-opts: --build=binary --no-sign -us -uc
-          docker-image: debian:${{ matrix.suite }}-slim
-          host-arch: ${{ matrix.architecture }}
-          extra-repos: |
-            deb http://archive.debian.org wheezy main
-          setup-hook: |
-            apt-get update
+          os_distribution: ${{ matrix.suite }}
+          cpu_architecture: ${{ matrix.architecture }}
