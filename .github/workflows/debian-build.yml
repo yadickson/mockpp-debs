@@ -1,0 +1,25 @@
+name: Build Debian Package
+
+on: [push, pull_request]
+
+jobs:
+  build:
+    strategy:
+      matrix:
+        suite: [wheezy, jessie, stretch, buster, bookworm, bullseye]
+        architecture: [amd64, arm64]
+        
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout source code
+        uses: actions/checkout@v4
+
+      - name: Set up QEMU for cross-building (if needed)
+        uses: docker/setup-qemu-action@v3
+      
+      - name: Build Debian package for ${{ matrix.suite }} on ${{ matrix.architecture }}
+        uses: jtdor/build-deb-action@v1
+        with:
+          suite: ${{ matrix.suite }}
+          host-arch: ${{ matrix.architecture }}
+          args: "-us -uc" 
