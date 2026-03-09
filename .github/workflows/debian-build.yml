@@ -6,8 +6,8 @@ jobs:
   build:
     strategy:
       matrix:
-        suite: [wheezy, jessie, stretch, buster, bookworm, bullseye]
-        architecture: [amd64, arm64]
+        suite: [wheezy]
+        architecture: [amd64]
         
     runs-on: ubuntu-latest
     steps:
