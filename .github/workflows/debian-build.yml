@@ -6,8 +6,8 @@ jobs:
   build:
     strategy:
       matrix:
-        suite: [bookworm, bullseye]
-        architecture: [amd64, arm64]
+        suite: [wheezy]
+        architecture: [amd64]
         
     runs-on: ubuntu-latest
     steps:
@@ -27,3 +27,7 @@ jobs:
           buildpackage-opts: --build=binary --no-sign -us -uc
           docker-image: debian:${{ matrix.suite }}-slim
           host-arch: ${{ matrix.architecture }}
+          extra-repos: |
+            deb http://archive.debian.org wheezy main
+          setup-hook: |
+            apt-get update
