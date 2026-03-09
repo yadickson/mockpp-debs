@@ -1,0 +1,26 @@
+name: C/C++ CI Linux
+
+on: [push, pull_request]
+
+jobs:
+
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: checkout source code
+        uses: actions/checkout@v4
+      - name: update operating system
+        run: sudo apt update
+      - name: install dependencies
+        run: sudo apt install -y build-essential pkg-config libcppunit-dev
+      - name: autoreconf
+        run: autoreconf -ivf
+      - name: configure
+        run: ./configure
+      - name: make
+        run: make
+      - name: make check
+        run: make check
+      - name: make distcheck
+        run: make distcheck
