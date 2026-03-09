@@ -16,7 +16,9 @@ jobs:
 
       - name: Set up QEMU for cross-building (if needed)
         uses: docker/setup-qemu-action@v3
-      
+        with:
+          platforms: all
+
       - name: Build Debian package for ${{ matrix.suite }} on ${{ matrix.architecture }}
         uses: jtdor/build-deb-action@v1
         env:
