@@ -1,4 +1,4 @@
-name: Build Debian Package
+name: Build Debian Package - Wheezy
 
 on: [push, pull_request]
 
@@ -27,3 +27,7 @@ jobs:
           buildpackage-opts: --build=binary --no-sign -us -uc
           docker-image: debian:${{ matrix.suite }}-slim
           host-arch: ${{ matrix.architecture }}
+          setup-hook: |
+            if [ "${{ matrix.suite }}" == "wheezy" ]; then
+              sed -i 's|http://.*debian.org|http://archive.debian.org|g' /etc/apt/sources.list
+            fi
