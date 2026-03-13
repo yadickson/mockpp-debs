@@ -1,4 +1,4 @@
-name: Build Debian Package - Wheezy
+name: Build Debian Package
 
 on: [push, pull_request]
 
