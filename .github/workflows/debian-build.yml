@@ -7,7 +7,7 @@ jobs:
     strategy:
       matrix:
         suite: [oldstable, stable, testing]
-        architecture: [amd64]
+        architecture: [i386, amd64, arm64]
         
     runs-on: ubuntu-latest
     steps:
