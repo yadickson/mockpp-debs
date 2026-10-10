@@ -19,5 +19,6 @@ jobs:
         with:
           docker-image: debian:${{ matrix.suite }}-slim
           host-arch: ${{ matrix.architecture }}
-          before-build-hook: debchange --controlmaint --local="+ci${{ github.run_id }}~${{ matrix.suite }}~git$(git rev-parse --short HEAD)" "CI build"
           buildpackage-opts: -rfakeroot -D -us -uc -i -I -sa --build=binary --no-sign
+          before-build-hook: debchange --controlmaint --local="+ci${{ github.run_id }}~${{ matrix.suite }}~git$(git rev-parse --short HEAD)" "CI build"
+          extra-build-deps: devscripts git
