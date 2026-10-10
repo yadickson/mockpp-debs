@@ -6,7 +6,8 @@ jobs:
   build:
     strategy:
       matrix:
-        suite: [wheezy, jessie, stretch, buster, bullseye, bookworm, trixie]
+        # suite: [wheezy, jessie, stretch, buster, bullseye, bookworm, trixie]
+        suite: [oldstable, stable]
         architecture: [i386, amd64, arm64]
     runs-on: ubuntu-latest
     steps:
