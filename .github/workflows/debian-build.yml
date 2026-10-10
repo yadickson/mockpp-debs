@@ -20,8 +20,7 @@ jobs:
           DEB_BUILD_OPTIONS: noautodbgsym
         with:
           docker-image: debian:${{ matrix.suite }}-slim
-          extra-repos:
-            - deb [trusted=yes] http://archive.debian.org/debian/ ${{ matrix.suite }} main
+          #extra-repos: deb [trusted=yes] http://archive.debian.org/debian/ ${{ matrix.suite }} main
           host-arch: ${{ matrix.architecture }}
           #buildpackage-opts: -rfakeroot -D -us -uc -i -I -sa
           buildpackage-opts: --build=binary --no-sign
