@@ -56,3 +56,4 @@ mockpp/mockpp_config.h
 mockpp/examples/tutorial/verifying
 mockpp/examples/tutorial/visitmock
 mockpp/examples/tutorial/visitmock2
+.idea/

@@ -1,7 +1,5 @@
 # Debian Package for Mockpp Project
 
-[![TravisCI Status][travis-image]][travis-url]
-
 **Build dependencies**
 
 - debhelper (>= 9)
@@ -58,7 +56,3 @@ $ sudo apt-get install libmockpp-dev
 GPL-3.0 © [Yadickson Soto](https://github.com/yadickson)
 
 LGPL-2 © [Ewald Arnold](http://sourceforge.net/projects/mockpp/)
-
-[travis-image]: https://api.travis-ci.org/yadickson/mockpp-debs.svg?branch=master
-[travis-url]: https://travis-ci.org/yadickson/mockpp-debs
-

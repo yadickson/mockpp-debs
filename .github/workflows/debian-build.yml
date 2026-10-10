@@ -6,16 +6,18 @@ jobs:
   build:
     strategy:
       matrix:
-        suite: [oldstable, stable, testing]
+        suite: [wheezy]
         architecture: [i386, amd64, arm64]
-        
     runs-on: ubuntu-latest
     steps:
       - name: checkout source code
         uses: actions/checkout@v4
-
       - name: Build Debian package for ${{ matrix.suite }} on ${{ matrix.architecture }}
-        uses: dawidd6/action-debian-package@v4
+        uses: jtdor/build-deb-action@v1
+        env:
+          DEB_BUILD_OPTIONS: noautodbgsym
         with:
-          os_distribution: ${{ matrix.suite }}
-          cpu_architecture: ${{ matrix.architecture }}
+          docker-image: debian:${{ matrix.suite }}-slim
+          host-arch: ${{ matrix.architecture }}
+          before-build-hook: debchange --controlmaint --local="+ci${{ github.run_id }}~${{ matrix.suite }}~git$(git rev-parse --short HEAD)" "CI build"
+          buildpackage-opts: -rfakeroot -D -us -uc -i -I -sa --build=binary --no-sign
