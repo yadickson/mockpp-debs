@@ -19,7 +19,7 @@ jobs:
         env:
           DEB_BUILD_OPTIONS: noautodbgsym
         with:
-          docker-image: https://github.com/yadickson/docker-to-build-debian-packages/blob/main/Dockerfile.${{ matrix.suite }}
+          docker-image: https://github.com/yadickson/docker-to-build-debian-packages/blob/main/dockerfile.${{ matrix.suite }}
           host-arch: ${{ matrix.architecture }}
           buildpackage-opts: -rfakeroot -D -us -uc -i -I -sa
           #buildpackage-opts: --build=binary --no-sign
