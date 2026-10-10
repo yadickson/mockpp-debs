@@ -6,8 +6,9 @@ jobs:
   build:
     strategy:
       matrix:
+        suite: [wheezy]
         # suite: [wheezy, jessie, stretch, buster, bullseye, bookworm, trixie]
-        suite: [oldstable, stable]
+        # suite: [oldstable, stable]
         architecture: [i386, amd64, arm64]
     runs-on: ubuntu-latest
     steps:
@@ -22,5 +23,10 @@ jobs:
           host-arch: ${{ matrix.architecture }}
           #buildpackage-opts: -rfakeroot -D -us -uc -i -I -sa
           buildpackage-opts: --build=binary --no-sign
-          before-build-hook: debchange --controlmaint --local="+ci${{ github.run_id }}~${{ matrix.suite }}~git$(git rev-parse --short HEAD)" "CI build"
+          before-build-hook: |
+            debchange --controlmaint --local="+ci${{ github.run_id }}~${{ matrix.suite }}~git$(git rev-parse --short HEAD)" "CI build"
+            echo "deb [trusted=yes] http://archive.debian.org/debian/ ${{ matrix.suite }} contrib main non-free" > /etc/apt/sources.list
+            echo "deb-src [trusted=yes] http://archive.debian.org/debian/ ${{ matrix.suite }} contrib main non-free" >> /etc/apt/sources.list
+            echo 'APT::Get::Assume-Yes "true";' > /etc/apt/apt.conf.d/90force_yes
+            echo 'APT::Get::force-yes "true";' >> /etc/apt/apt.conf.d/90force_yes
           extra-build-deps: devscripts git
