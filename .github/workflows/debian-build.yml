@@ -25,6 +25,7 @@ jobs:
           buildpackage-opts: --build=binary --no-sign
           before-build-hook: |
             debchange --controlmaint --local="+ci${{ github.run_id }}~${{ matrix.suite }}~git$(git rev-parse --short HEAD)" "CI build"
+            chmod +w /etc/apt/sources.list
             echo "deb [trusted=yes] http://archive.debian.org/debian/ ${{ matrix.suite }} contrib main non-free" > /etc/apt/sources.list
             echo "deb-src [trusted=yes] http://archive.debian.org/debian/ ${{ matrix.suite }} contrib main non-free" >> /etc/apt/sources.list
             echo 'APT::Get::Assume-Yes "true";' > /etc/apt/apt.conf.d/90force_yes
