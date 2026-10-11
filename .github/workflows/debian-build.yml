@@ -21,7 +21,7 @@ jobs:
           host-arch: ${{ matrix.architecture }}
           artifacts-dir: ./artifacts
           source-dir: ./
-          buildpackage-opts: -rfakeroot -D -us -uc -i -I -sa
+          buildpackage-opts: -rfakeroot -D -us -ui -uc -i -I -sa -j1
           before-build-hook: |
             debian/rules get-orig-source
             debian/rules publish-source
