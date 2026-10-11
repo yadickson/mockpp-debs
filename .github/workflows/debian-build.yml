@@ -6,8 +6,8 @@ jobs:
   build:
     strategy:
       matrix:
-        codename: [oldstable, stable]
-        architecture: [amd64]
+        codename: [bullseye, bookworm, trixie, forky]
+        architecture: [i386, amd64]
     runs-on: ubuntu-latest
     steps:
       - name: checkout source code
