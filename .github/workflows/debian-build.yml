@@ -31,8 +31,8 @@ jobs:
           source-dir: ./
           buildpackage-opts: -rfakeroot -D -us -ui -uc -i -I -sa -j1
           before-build-hook: |
-            debian/rules orig
-            debian/rules source
+            debian/rules get-orig-source
+            debian/rules publish-source
             debchange --controlmaint --local="+ci${{ github.run_id }}~${{ matrix.codename }}~git$(git rev-parse --short HEAD)" "CI build on ${{ matrix.codename }}"
           extra-build-deps: devscripts git unzip wget
       - name: List artifacts files

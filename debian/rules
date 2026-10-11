@@ -35,13 +35,9 @@ override_dh_auto_clean:
 PKG  = $(word 2,$(shell dpkg-parsechangelog -ldebian/changelog | grep ^Source))
 VER ?= $(shell dpkg-parsechangelog -ldebian/changelog | perl -ne 'print $$1 if m{^Version:\s+(?:\d+:)?(\d.*)(?:\-\d+.*)};')
 
-orig: get-orig-source
-
 get-orig-source:
 	#uscan --verbose --report --download-current-version --rename --repack
 	sh debian/get-orig-source.sh "$(PKG)" "$(VER)"
-
-source: publish-source
 
 publish-source:
 	sh debian/publish-source.sh "$(PKG)" "$(VER)"
