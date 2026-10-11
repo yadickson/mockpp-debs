@@ -7,4 +7,3 @@ RUN echo "deb-src [trusted=yes] http://archive.debian.org/debian/ wheezy main co
 
 RUN apt-get update
 RUN apt-get upgrade -y
-RUN apt-get install debhelper
