@@ -6,6 +6,7 @@ RUN echo "deb [trusted=yes] http://archive.debian.org/debian-security/ buster/up
 
 RUN echo "deb-src [trusted=yes] http://archive.debian.org/debian/ buster main contrib" >> /etc/apt/sources.list
 RUN echo "deb-src [trusted=yes] http://archive.debian.org/debian/ buster-updates main contrib" >> /etc/apt/sources.list
+RUN echo "deb-src [trusted=yes] http://archive.debian.org/debian-security/ buster/updates main" >> /etc/apt/sources.list
 
 RUN apt-get update
 RUN apt-get upgrade -y
