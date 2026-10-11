@@ -1,5 +1,5 @@
-ARG CODENAME=stable
+ARG codename=stable
 
-FROM debian:${CODENAME}-slim
+FROM debian:${codename}-slim
 
-RUN if [[ "${CODENAME}" != "stable" ]] ; "deb [trusted=yes] http://archive.debian.org/debian/ ${CODENAME} main" > /etc/apt/sources.list ; fi
+RUN if [[ "${codename}" != "stable" ]] ; "deb [trusted=yes] http://archive.debian.org/debian/ ${codename} main" > /etc/apt/sources.list ; fi
