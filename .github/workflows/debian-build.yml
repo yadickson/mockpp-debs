@@ -18,12 +18,10 @@ jobs:
       - name: Check Dockerfile
         id: file_check
         run: |
-          if [ -f .github/container/Dockerfile.${{ matrix.codename }} ]; then
-            echo "docker_image=.github/container/Dockerfile.${{ matrix.codename }}" >> $GITHUB_OUTPUT
-            echo "source_dir=../.." >> $GITHUB_OUTPUT
+          if [ -f Dockerfile.${{ matrix.codename }} ]; then
+            echo "docker_image=Dockerfile.${{ matrix.codename }}" >> $GITHUB_OUTPUT
           else
             echo "docker_image=debian:${{ matrix.codename }}-slim" >> $GITHUB_OUTPUT
-            echo "source_dir=./" >> $GITHUB_OUTPUT
           fi
 
       - name: Build Debian package for ${{ matrix.codename }} on ${{ matrix.architecture }}
@@ -32,7 +30,6 @@ jobs:
           DEB_BUILD_OPTIONS: noautodbgsym
         with:
           docker-image: ${{ steps.file_check.outputs.docker_image }}
-          source-dir: ${{ steps.file_check.outputs.source_dir }}
           host-arch: ${{ matrix.architecture }}
           buildpackage-opts: -rfakeroot -D -us -uc -i -I -sa
           # buildpackage-opts: --build=binary --no-sign
