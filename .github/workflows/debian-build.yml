@@ -14,13 +14,21 @@ jobs:
     steps:
       - name: checkout source code
         uses: actions/checkout@v4
+      - name: Check Dockerfile
+        id: file_check
+        run: |
+          if [ -f .github/container/Dockerfile.${{ matrix.codename }} ]; then
+            echo "docker_image=.github/container/Dockerfile.${{ matrix.codename }}" >> $GITHUB_OUTPUT
+          else
+            echo "docker_image=debian:${{ matrix.codename }}-slim" >> $GITHUB_OUTPUT
+          fi
+
       - name: Build Debian package for ${{ matrix.codename }} on ${{ matrix.architecture }}
         uses: jtdor/build-deb-action@v1
         env:
           DEB_BUILD_OPTIONS: noautodbgsym
         with:
-          docker-image: .github/container/Dockerfile
-          extra-docker-args: --build-arg codename:${{ matrix.codename }}
+          docker-image: ${{ steps.file_check.outputs.docker_image }}
           host-arch: ${{ matrix.architecture }}
           buildpackage-opts: -rfakeroot -D -us -uc -i -I -sa
           #buildpackage-opts: --build=binary --no-sign
