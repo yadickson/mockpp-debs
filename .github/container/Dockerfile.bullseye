@@ -7,5 +7,3 @@ RUN echo "deb-src [trusted=yes] http://archive.debian.org/debian/ bullseye-updat
 
 RUN apt-get update
 RUN apt-get upgrade -y
-
-RUN dpkg --get-selections | grep hold
