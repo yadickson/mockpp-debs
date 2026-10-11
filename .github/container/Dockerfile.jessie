@@ -1,4 +1,4 @@
-FROM debian:wheezy-slim
+FROM debian:jessie-slim
 
 RUN echo "deb [trusted=yes] http://archive.debian.org/debian/ jessie main" > /etc/apt/sources.list
 RUN echo "deb-src [trusted=yes] http://archive.debian.org/debian/ jessie main" >> /etc/apt/sources.list

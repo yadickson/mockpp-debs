@@ -18,20 +18,25 @@ jobs:
       - name: Check Dockerfile
         id: file_check
         run: |
-          if [ -f Dockerfile.${{ matrix.codename }} ]; then
-            echo "docker_image=Dockerfile.${{ matrix.codename }}" >> $GITHUB_OUTPUT
+          if [ -f .github/container/Dockerfile.${{ matrix.codename }} ]; then
+            echo "docker_image=.github/container/Dockerfile.${{ matrix.codename }}" >> $GITHUB_OUTPUT
           else
             echo "docker_image=debian:${{ matrix.codename }}-slim" >> $GITHUB_OUTPUT
           fi
 
-      - name: Build Debian package for ${{ matrix.codename }} on ${{ matrix.architecture }}
+      - name: Build Debian binary and source package for ${{ matrix.codename }} on ${{ matrix.architecture }}
         uses: jtdor/build-deb-action@v1
         env:
           DEB_BUILD_OPTIONS: noautodbgsym
         with:
           docker-image: ${{ steps.file_check.outputs.docker_image }}
           host-arch: ${{ matrix.architecture }}
-          buildpackage-opts: -rfakeroot -D -us -uc -i -I -sa
-          # buildpackage-opts: --build=binary --no-sign
+          artifacts-dir: ./artifacts
+          source-dir: ./
+          # buildpackage-opts: -rfakeroot -D -us -uc -i -I -sa
+          buildpackage-opts: --build=full --no-sign
           before-build-hook: debchange --controlmaint --local="+ci${{ github.run_id }}~${{ matrix.codename }}~git$(git rev-parse --short HEAD)" "CI build on ${{ matrix.codename }}"
           extra-build-deps: devscripts git
+      - name: List artifacts files
+        run: |
+          ls -ls ./artifacts
