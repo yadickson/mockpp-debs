@@ -8,3 +8,5 @@ RUN echo "deb-src [trusted=yes] http://archive.debian.org/debian-security/ wheez
 
 RUN apt-get update
 RUN apt-get upgrade -y
+
+RUN echo 'Acquire::Check-Valid-Until "false";' >> /etc/apt/apt.conf.d/80archive
