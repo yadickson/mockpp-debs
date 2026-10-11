@@ -6,35 +6,22 @@ jobs:
   build:
     strategy:
       matrix:
-        codename: [bookworm, stable]
-        # codename: [wheezy, jessie, stretch, buster, bullseye, bookworm, trixie]
-        # codename: [oldstable, stable]
-        architecture: [amd64]
-        #architecture: [i386, amd64, arm64]
+        codename: [oldstable, stable]
+        architecture: [amd64, arm64]
     runs-on: ubuntu-latest
     steps:
       - name: checkout source code
         uses: actions/checkout@v6
-      - name: Check Dockerfile
-        id: file_check
-        run: |
-          if [ -f .github/container/Dockerfile.${{ matrix.codename }} ]; then
-            echo "docker_image=.github/container/Dockerfile.${{ matrix.codename }}" >> $GITHUB_OUTPUT
-          else
-            echo "docker_image=debian:${{ matrix.codename }}-slim" >> $GITHUB_OUTPUT
-          fi
-
       - name: Build Debian binary and source package for ${{ matrix.codename }} on ${{ matrix.architecture }}
         uses: jtdor/build-deb-action@v1
         env:
           DEB_BUILD_OPTIONS: noautodbgsym
         with:
-          docker-image: ${{ steps.file_check.outputs.docker_image }}
+          docker-image: debian:${{ matrix.codename }}-slim
           host-arch: ${{ matrix.architecture }}
           artifacts-dir: ./artifacts
           source-dir: ./
-          # buildpackage-opts: -rfakeroot -D -us -uc -i -I -sa
-          buildpackage-opts: --build=binary --no-sign
+          buildpackage-opts: --build=full --no-sign
           before-build-hook: debchange --controlmaint --local="+ci${{ github.run_id }}~${{ matrix.codename }}~git$(git rev-parse --short HEAD)" "CI build on ${{ matrix.codename }}"
           extra-build-deps: devscripts git
       - name: List artifacts files

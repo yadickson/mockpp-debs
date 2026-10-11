@@ -2,7 +2,7 @@
 
 **Build dependencies**
 
-- debhelper (>= 9)
+- debhelper (>= 10)
 - dh-autoreconf (>= 2)
 - autotools-dev
 - libcppunit-dev (>= 1.12.1)

@@ -1,4 +1,0 @@
-FROM debian:buster-slim
-
-RUN echo "deb [trusted=yes] http://archive.debian.org/debian/ buster main" > /etc/apt/sources.list
-RUN echo "deb-src [trusted=yes] http://archive.debian.org/debian/ buster main" >> /etc/apt/sources.list
