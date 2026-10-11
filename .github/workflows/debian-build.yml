@@ -6,7 +6,7 @@ jobs:
   build:
     strategy:
       matrix:
-        codename: [wheezy, jessie, stable]
+        codename: [stretch, stable]
         # codename: [wheezy, jessie, stretch, buster, bullseye, bookworm, trixie]
         # codename: [oldstable, stable]
         architecture: [i386, amd64]
