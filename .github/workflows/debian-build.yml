@@ -6,7 +6,7 @@ jobs:
   build:
     strategy:
       matrix:
-        codename: [buster, bullseye, bookworm, trixie, forky]
+        codename: [jessie, buster, bullseye, bookworm, trixie, forky]
         architecture: [amd64]
     runs-on: ubuntu-latest
     steps:
@@ -31,8 +31,8 @@ jobs:
           source-dir: ./
           buildpackage-opts: -rfakeroot -D -us -ui -uc -i -I -sa -j1
           before-build-hook: |
-            debian/rules get-orig-source
-            debian/rules publish-source
+            debian/rules orig
+            debian/rules source
             debchange --controlmaint --local="+ci${{ github.run_id }}~${{ matrix.codename }}~git$(git rev-parse --short HEAD)" "CI build on ${{ matrix.codename }}"
           extra-build-deps: devscripts git unzip wget
       - name: List artifacts files
