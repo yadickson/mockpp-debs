@@ -1,7 +1,7 @@
 Source: mockpp
 Priority: extra
 Maintainer: Yadickson Soto <yadickson@gmail.com>
-Build-Depends: debhelper (>= 9), dh-autoreconf (>= 2),
+Build-Depends: debhelper (>= 10), dh-autoreconf (>= 2),
  autotools-dev, pkg-config,
  libcppunit-dev (>= 1.12.1)
 Standards-Version: 3.8.3
