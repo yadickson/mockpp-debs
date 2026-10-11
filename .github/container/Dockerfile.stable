@@ -1,5 +1,1 @@
 FROM debian:stable-slim
-
-# RUN echo "deb [trusted=yes] http://deb.debian.org/debian/ stable main" > /etc/apt/sources.list
-# RUN echo "deb-src [trusted=yes] http://deb.debian.org/debian/ stable main" >> /etc/apt/sources.list
-# RUN echo "APT::Get::force-yes \"true\";" > /etc/apt/apt.conf.d/90force_yes
