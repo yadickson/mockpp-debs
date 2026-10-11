@@ -1,7 +1,7 @@
 FROM debian:wheezy-slim
 
 RUN echo "deb [trusted=yes] http://archive.debian.org/debian/ wheezy main" > /etc/apt/sources.list
-RUN echo "deb-src [trusted=yes] http://archive.debian.org/debian/ wheezy main" > /etc/apt/sources.list
+RUN echo "deb-src [trusted=yes] http://archive.debian.org/debian/ wheezy main" >> /etc/apt/sources.list
 
 RUN apt-get update
 RUN apt-get upgrade -y
