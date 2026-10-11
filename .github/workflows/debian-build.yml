@@ -7,7 +7,7 @@ jobs:
     strategy:
       matrix:
         codename: [oldstable, stable]
-        architecture: [amd64, arm64]
+        architecture: [amd64]
     runs-on: ubuntu-latest
     steps:
       - name: checkout source code
@@ -21,7 +21,7 @@ jobs:
           host-arch: ${{ matrix.architecture }}
           artifacts-dir: ./artifacts
           source-dir: ./
-          buildpackage-opts: --build=binary --no-sign
+          buildpackage-opts: -rfakeroot -D -us -uc -i -I -sa
           before-build-hook: |
             debian/rules get-orig-source
             debian/rules publish-source
