@@ -2,6 +2,8 @@ FROM debian:bullseye-slim
 
 RUN echo "deb [trusted=yes] http://archive.debian.org/debian/ bullseye main contrib > /etc/apt/sources.list
 RUN echo "deb [trusted=yes] http://archive.debian.org/debian/ bullseye-updates main contrib" >> /etc/apt/sources.list
+RUN echo "deb [trusted=yes] http://archive.debian.org/debian-security/ bullseye-security main" >> /etc/apt/sources.list
+
 RUN echo "deb-src [trusted=yes] http://archive.debian.org/debian/ bullseye main contrib" >> /etc/apt/sources.list
 RUN echo "deb-src [trusted=yes] http://archive.debian.org/debian/ bullseye-updates main contrib" >> /etc/apt/sources.list
 
