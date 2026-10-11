@@ -9,7 +9,8 @@ jobs:
         codename: [wheezy]
         # codename: [wheezy, jessie, stretch, buster, bullseye, bookworm, trixie]
         # codename: [oldstable, stable]
-        architecture: [i386, amd64, arm64]
+        architecture: [amd64]
+        #architecture: [i386, amd64, arm64]
     runs-on: ubuntu-latest
     steps:
       - name: checkout source code
