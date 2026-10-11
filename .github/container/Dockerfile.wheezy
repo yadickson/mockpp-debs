@@ -1,4 +1,5 @@
 FROM debian:wheezy-slim
 
 RUN echo "deb [trusted=yes] http://archive.debian.org/debian/ wheezy main" > /etc/apt/sources.list
-RUN rm -f /etc/apt/trusted.gpg.d/debian-archive-*.asc
+RUN echo "deb-src [trusted=yes] http://archive.debian.org/debian/ wheezy main" >> /etc/apt/sources.list
+RUN echo "APT::Get::force-yes \"true\";" > /etc/apt/apt.conf.d/90force_yes
