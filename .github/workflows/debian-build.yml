@@ -9,7 +9,7 @@ jobs:
         codename: [wheezy, jessie, stable]
         # codename: [wheezy, jessie, stretch, buster, bullseye, bookworm, trixie]
         # codename: [oldstable, stable]
-        architecture: [amd64]
+        architecture: [i386, amd64]
         #architecture: [i386, amd64, arm64]
     runs-on: ubuntu-latest
     steps:
@@ -32,7 +32,7 @@ jobs:
           source-dir: .
           docker-image: ${{ steps.file_check.outputs.docker_image }}
           host-arch: ${{ matrix.architecture }}
-          # buildpackage-opts: -rfakeroot -D -us -uc -i -I -sa
-          buildpackage-opts: --build=binary --no-sign
+          buildpackage-opts: -rfakeroot -D -us -uc -i -I -sa
+          # buildpackage-opts: --build=binary --no-sign
           before-build-hook: debchange --controlmaint --local="+ci${{ github.run_id }}~${{ matrix.codename }}~git$(git rev-parse --short HEAD)" "CI build on ${{ matrix.codename }}"
           extra-build-deps: devscripts git
