@@ -2,6 +2,8 @@ FROM debian:buster-slim
 
 RUN echo "deb [trusted=yes] http://archive.debian.org/debian/ buster main" > /etc/apt/sources.list
 RUN echo "deb [trusted=yes] http://archive.debian.org/debian/ buster-updates main" > /etc/apt/sources.list
+RUN echo "deb-src [trusted=yes] http://archive.debian.org/debian/ buster main" > /etc/apt/sources.list
+RUN echo "deb-src [trusted=yes] http://archive.debian.org/debian/ buster-updates main" > /etc/apt/sources.list
 
 RUN apt-get update
 RUN apt-get upgrade -y
