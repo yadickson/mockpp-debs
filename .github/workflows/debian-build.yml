@@ -20,7 +20,7 @@ jobs:
           DEB_BUILD_OPTIONS: noautodbgsym
         with:
           docker-image: .github/container/Dockerfile
-          extra-docker-args: --build-arg codename=${{ matrix.codename }}
+          extra-docker-args: --build-arg codename:${{ matrix.codename }}
           host-arch: ${{ matrix.architecture }}
           buildpackage-opts: -rfakeroot -D -us -uc -i -I -sa
           #buildpackage-opts: --build=binary --no-sign
