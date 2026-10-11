@@ -6,7 +6,7 @@ jobs:
   build:
     strategy:
       matrix:
-        codename: [stable]
+        codename: [wheezy, jessie, stable]
         # codename: [wheezy, jessie, stretch, buster, bullseye, bookworm, trixie]
         # codename: [oldstable, stable]
         architecture: [amd64]
@@ -29,6 +29,7 @@ jobs:
         env:
           DEB_BUILD_OPTIONS: noautodbgsym
         with:
+          source-dir: .
           docker-image: ${{ steps.file_check.outputs.docker_image }}
           host-arch: ${{ matrix.architecture }}
           # buildpackage-opts: -rfakeroot -D -us -uc -i -I -sa
