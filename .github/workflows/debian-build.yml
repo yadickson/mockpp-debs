@@ -23,7 +23,7 @@ jobs:
           source-dir: ./
           buildpackage-opts: --build=full --no-sign
           before-build-hook: debchange --controlmaint --local="+ci${{ github.run_id }}~${{ matrix.codename }}~git$(git rev-parse --short HEAD)" "CI build on ${{ matrix.codename }}"
-          extra-build-deps: devscripts git
+          extra-build-deps: devscripts git unzip wget
       - name: List artifacts files
         run: |
           ls -ls ./artifacts
