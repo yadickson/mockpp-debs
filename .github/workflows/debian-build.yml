@@ -6,8 +6,8 @@ jobs:
   build:
     strategy:
       matrix:
-        codename: [wheezy]
-        # codename: [wheezy, buster, bullseye, bookworm, trixie, forky]
+        codename: [stretch]
+        # codename: [stretch, wheezy, buster, bullseye, bookworm, trixie, forky]
         architecture: [amd64]
     runs-on: ubuntu-latest
     steps:
