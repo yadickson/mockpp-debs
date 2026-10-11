@@ -6,7 +6,7 @@ jobs:
   build:
     strategy:
       matrix:
-        codename: [buster, bullseye, bookworm, stable]
+        codename: [bookworm, stable]
         # codename: [wheezy, jessie, stretch, buster, bullseye, bookworm, trixie]
         # codename: [oldstable, stable]
         architecture: [amd64]
