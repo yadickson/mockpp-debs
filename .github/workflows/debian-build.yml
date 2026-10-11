@@ -33,7 +33,8 @@ jobs:
           host-arch: ${{ matrix.architecture }}
           artifacts-dir: ./artifacts
           source-dir: ./
-          buildpackage-opts: -rfakeroot -D -us -uc -i -I -sa
+          buildpackage-opts: -rfakeroot -D -us -uc -i
+          # buildpackage-opts: -rfakeroot -D -us -uc -i -I -sa
           # buildpackage-opts: --build=full --no-sign
           before-build-hook: debchange --controlmaint --local="+ci${{ github.run_id }}~${{ matrix.codename }}~git$(git rev-parse --short HEAD)" "CI build on ${{ matrix.codename }}"
           extra-build-deps: devscripts git
