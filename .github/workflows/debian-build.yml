@@ -21,8 +21,11 @@ jobs:
           host-arch: ${{ matrix.architecture }}
           artifacts-dir: ./artifacts
           source-dir: ./
-          buildpackage-opts: --build=full --no-sign -I -sa
-          before-build-hook: debchange --controlmaint --local="+ci${{ github.run_id }}~${{ matrix.codename }}~git$(git rev-parse --short HEAD)" "CI build on ${{ matrix.codename }}"
+          buildpackage-opts: --build=full --no-sign
+          before-build-hook: |
+            debian/rules get-orig-source
+            debian/rules publish-source
+            debchange --controlmaint --local="+ci${{ github.run_id }}~${{ matrix.codename }}~git$(git rev-parse --short HEAD)" "CI build on ${{ matrix.codename }}"
           extra-build-deps: devscripts git unzip wget
       - name: List artifacts files
         run: |
