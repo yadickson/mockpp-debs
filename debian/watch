@@ -1,3 +1,3 @@
 version=3
 
-http://sf.net/mockpp/mockpp-(\d\S*)-src\.(?:zip|tgz|tbz|txz|(?:tar\.(?:gz|bz2|xz)))
+http://downloads.sourceforge.net/project/mockpp/mockpp-(\d\S*)-src\.(?:zip|tgz|tbz|txz|(?:tar\.(?:gz|bz2|xz)))
