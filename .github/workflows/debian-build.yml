@@ -6,7 +6,8 @@ jobs:
   build:
     strategy:
       matrix:
-        codename: [buster, bullseye, bookworm, trixie, forky]
+#        codename: [buster, bullseye, bookworm, trixie, forky]
+        codename: [stretch]
         architecture: [amd64]
     runs-on: ubuntu-latest
     steps:
@@ -26,6 +27,7 @@ jobs:
           DEB_BUILD_OPTIONS: noautodbgsym
         with:
           docker-image: ${{ steps.file_check.outputs.docker_image }}
+          apt-opts: --no-install-recommends --no-install-suggests
           host-arch: ${{ matrix.architecture }}
           artifacts-dir: ./artifacts
           source-dir: ./
