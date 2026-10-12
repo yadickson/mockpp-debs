@@ -1,4 +1,4 @@
-name: Build Debian Package
+name: Build Debian Package - (11)Bullseye
 
 on: [push, pull_request]
 
@@ -6,7 +6,7 @@ jobs:
   build:
     strategy:
       matrix:
-        codename: [buster, bullseye, bookworm, trixie, forky]
+        codename: [bullseye]
         architecture: [amd64]
     runs-on: ubuntu-latest
     steps:
@@ -17,10 +17,16 @@ jobs:
         env:
           DEB_BUILD_OPTIONS: noautodbgsym
         with:
-          debian-codename: ${{ matrix.codename }}
+          docker-image: debian:${{ matrix.codename }}-slim
           host-arch: ${{ matrix.architecture }}
           artifacts-dir: ./artifacts
           source-dir: ./
+          clean-repos: true
+          extra-repos: |
+            # These are intentionally given as two entries:
+            deb [trusted=yes] http://archive.debian.org/debian/ ${{ matrix.codename }} main contrib
+            deb [trusted=yes] http://archive.debian.org/debian/ ${{ matrix.codename }}-updates main contrib
+            deb [trusted=yes] http://archive.debian.org/debian-security/ ${{ matrix.codename }}-security main
           buildpackage-opts: -rfakeroot -D -us -ui -uc -i -I -sa -j1
           before-build-hook: |
             debian/rules get-orig-source

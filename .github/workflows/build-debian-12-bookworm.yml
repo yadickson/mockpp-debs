@@ -1,0 +1,32 @@
+name: Build Debian Package - (12)Bookworm
+
+on: [push, pull_request]
+
+jobs:
+  build:
+    strategy:
+      matrix:
+        codename: [bookworm]
+        architecture: [amd64]
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout source code
+        uses: actions/checkout@v6
+      - name: Build Debian binary and source package for ${{ matrix.codename }} on ${{ matrix.architecture }}
+        uses: yadickson/build-deb-action@v2
+        env:
+          DEB_BUILD_OPTIONS: noautodbgsym
+        with:
+          docker-image: debian:${{ matrix.codename }}-slim
+          host-arch: ${{ matrix.architecture }}
+          artifacts-dir: ./artifacts
+          source-dir: ./
+          buildpackage-opts: -rfakeroot -D -us -ui -uc -i -I -sa -j1
+          before-build-hook: |
+            debian/rules get-orig-source
+            debian/rules publish-source
+            debchange --controlmaint --local="+ci${{ github.run_id }}~${{ matrix.codename }}~git$(git rev-parse --short HEAD)" "CI build on ${{ matrix.codename }}"
+          extra-build-deps: devscripts git unzip wget
+      - name: List artifacts files
+        run: |
+          ls -ls ./artifacts

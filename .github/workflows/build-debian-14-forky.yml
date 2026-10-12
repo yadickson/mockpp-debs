@@ -1,4 +1,4 @@
-name: Build Debian Package - Stretch
+name: Build Debian Package - (14)Forky
 
 on: [push, pull_request]
 
@@ -6,7 +6,7 @@ jobs:
   build:
     strategy:
       matrix:
-        codename: [stretch]
+        codename: [forky]
         architecture: [amd64]
     runs-on: ubuntu-latest
     steps:
@@ -17,11 +17,10 @@ jobs:
         env:
           DEB_BUILD_OPTIONS: noautodbgsym
         with:
-          debian-codename: ${{ matrix.codename }}
+          docker-image: debian:${{ matrix.codename }}-slim
           host-arch: ${{ matrix.architecture }}
           artifacts-dir: ./artifacts
           source-dir: ./
-          add-cross-builder: false
           buildpackage-opts: -rfakeroot -D -us -ui -uc -i -I -sa -j1
           before-build-hook: |
             debian/rules get-orig-source
