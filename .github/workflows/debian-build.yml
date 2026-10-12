@@ -6,28 +6,18 @@ jobs:
   build:
     strategy:
       matrix:
-#        codename: [buster, bullseye, bookworm, trixie, forky]
-        codename: [wheezy]
+        codename: [stretch, buster, bullseye, bookworm, trixie, forky]
         architecture: [amd64]
     runs-on: ubuntu-latest
     steps:
       - name: checkout source code
         uses: actions/checkout@v6
-      - name: Check Dockerfile
-        id: file_check
-        run: |
-          if [ -f .github/container/Dockerfile.${{ matrix.codename }} ]; then
-            echo "docker_image=.github/container/Dockerfile.${{ matrix.codename }}" >> $GITHUB_OUTPUT
-          else
-            echo "docker_image=debian:${{ matrix.codename }}-slim" >> $GITHUB_OUTPUT
-          fi
       - name: Build Debian binary and source package for ${{ matrix.codename }} on ${{ matrix.architecture }}
-        uses: jtdor/build-deb-action@v1
+        uses: yadickson/build-deb-action@v2
         env:
           DEB_BUILD_OPTIONS: noautodbgsym
         with:
-          docker-image: ${{ steps.file_check.outputs.docker_image }}
-          apt-opts: --install-recommends --no-install-suggests
+          debian-codename: ${{ matrix.codename }}
           host-arch: ${{ matrix.architecture }}
           artifacts-dir: ./artifacts
           source-dir: ./

@@ -13,8 +13,8 @@
 - wget
 
 ```
-$ debian/rules orig
-$ debian/rules source
+$ debian/rules get-orig-source
+$ debian/rules publish-source
 ```
 
 **Build project**
