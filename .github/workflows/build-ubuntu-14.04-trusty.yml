@@ -17,6 +17,7 @@ jobs:
         env:
           DEB_BUILD_OPTIONS: noautodbgsym
         with:
+          apt-opts: ''
           docker-image: ubuntu:${{ matrix.codename }}
           artifacts-dir: ./artifacts
           source-dir: ./
