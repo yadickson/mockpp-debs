@@ -16,7 +16,7 @@ jobs:
         env:
           DEB_BUILD_OPTIONS: noautodbgsym
         with:
-          docker-image: debian:${{ matrix.codename }}-slim
+          docker-image: debian:${{ matrix.codename }}
           artifacts-dir: ./artifacts
           source-dir: ./
           main-repos: |
@@ -43,7 +43,7 @@ jobs:
         env:
           DEB_BUILD_OPTIONS: noautodbgsym
         with:
-          docker-image: debian:${{ matrix.codename }}-slim
+          docker-image: debian:${{ matrix.codename }}
           artifacts-dir: ./artifacts
           source-dir: ./
           main-repos: |
