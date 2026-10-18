@@ -1,4 +1,4 @@
-name: CI - (11)Bullseye
+name: Debian - (11)Bullseye
 
 on: [push, pull_request]
 

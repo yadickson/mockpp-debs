@@ -1,4 +1,4 @@
-name: CI - (20.04)Focal
+name: Ubuntu - (20.04)Focal
 
 on: [push, pull_request]
 

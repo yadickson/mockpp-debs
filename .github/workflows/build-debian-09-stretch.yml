@@ -1,4 +1,4 @@
-name: CI - (9)Stretch
+name: Debian - (9)Stretch
 
 on: [push, pull_request]
 

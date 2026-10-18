@@ -1,4 +1,4 @@
-name: CI - (12)Bookworm
+name: Debian - (12)Bookworm
 
 on: [push, pull_request]
 

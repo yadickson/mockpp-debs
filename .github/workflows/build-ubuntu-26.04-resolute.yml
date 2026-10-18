@@ -1,4 +1,4 @@
-name: CI - (26.04)Resolute
+name: Ubuntu - (26.04)Resolute
 
 on: [push, pull_request]
 

@@ -1,4 +1,4 @@
-name: CI - (18.04)Bionic
+name: Ubuntu - (18.04)Bionic
 
 on: [push, pull_request]
 

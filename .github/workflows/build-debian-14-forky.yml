@@ -1,4 +1,4 @@
-name: CI - (14)Forky
+name: Debian - (14)Forky
 
 on: [push, pull_request]
 
