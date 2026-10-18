@@ -19,11 +19,10 @@ jobs:
           docker-image: debian:${{ matrix.codename }}-slim
           artifacts-dir: ./artifacts
           source-dir: ./
-          clean-repos: true
-          extra-repos: |
+          main-repos: |
             deb [trusted=yes] http://archive.debian.org/debian/ ${{ matrix.codename }} main contrib
             deb [trusted=yes] http://archive.debian.org/debian-security/ ${{ matrix.codename }}/updates main
-          buildpackage-opts: -rfakeroot -D -us -ui -uc -i -I -sa -j1
+          buildpackage-opts: --build=binary --no-sign
           before-build-hook: |
             debian/rules get-orig-source
             debian/rules publish-source
