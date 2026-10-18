@@ -1,0 +1,32 @@
+name: Debian - (6)Stretch
+
+on: [push, pull_request]
+
+jobs:
+  build:
+    strategy:
+      matrix:
+        codename: [stretch]
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout source code
+        uses: actions/checkout@v6
+      - name: Build Debian binary and source package for ${{ matrix.codename }}
+        uses: yadickson/build-deb-action@v2
+        env:
+          DEB_BUILD_OPTIONS: noautodbgsym
+        with:
+          docker-image: debian:${{ matrix.codename }}-slim
+          artifacts-dir: ./artifacts
+          source-dir: ./
+          main-repos: |
+            deb [trusted=yes] http://archive.debian.org/debian/ ${{ matrix.codename }} main contrib
+            deb [trusted=yes] http://archive.debian.org/debian-security/ ${{ matrix.codename }}/updates main
+          before-build-hook: |
+            debian/rules get-orig-source
+            debian/rules publish-source
+            debchange --controlmaint --local="+ci${{ github.run_id }}~${{ matrix.codename }}~git$(git rev-parse --short HEAD)" "CI build on ${{ matrix.codename }}"
+          extra-build-deps: devscripts git unzip wget
+      - name: List artifacts files
+        run: |
+          ls -ls ./artifacts
