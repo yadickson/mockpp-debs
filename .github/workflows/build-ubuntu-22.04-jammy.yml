@@ -1,4 +1,4 @@
-name: Build Ubuntu Package - (26.04)Resolute
+name: CI - (26.04)Jammy
 
 on: [push, pull_request]
 

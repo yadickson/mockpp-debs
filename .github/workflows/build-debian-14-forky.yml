@@ -1,4 +1,4 @@
-name: Build Debian Package - (14)Forky
+name: CI - (14)Forky
 
 on: [push, pull_request]
 

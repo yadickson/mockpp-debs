@@ -1,4 +1,4 @@
-name: Build Ubuntu Package - (26.10)Stonking
+name: CI - (26.10)Stonking
 
 on: [push, pull_request]
 

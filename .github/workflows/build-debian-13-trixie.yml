@@ -1,4 +1,4 @@
-name: Build Debian Package - (13)Trixie
+name: CI - (13)Trixie
 
 on: [push, pull_request]
 

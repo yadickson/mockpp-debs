@@ -1,4 +1,4 @@
-name: Build Debian Package - (10)Buster
+name: CI - (10)Buster
 
 on: [push, pull_request]
 

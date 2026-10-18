@@ -1,4 +1,4 @@
-name: Build Ubuntu Package - (26.04)Resolute
+name: CI - (26.04)Bionic
 
 on: [push, pull_request]
 

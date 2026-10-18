@@ -1,4 +1,4 @@
-name: Build Debian Package - (9)Stretch
+name: CI - (9)Stretch
 
 on: [push, pull_request]
 
