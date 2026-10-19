@@ -19,9 +19,6 @@ jobs:
           docker-image: debian:${{ matrix.codename }}-slim
           artifacts-dir: ./artifacts
           source-dir: ./
-          main-repos: |
-            deb [trusted=yes] http://archive.debian.org/debian/ ${{ matrix.codename }} main contrib
-            deb [trusted=yes] http://archive.debian.org/debian-security/ ${{ matrix.codename }}/updates main
           before-build-hook: |
             debian/rules get-orig-source
             debian/rules publish-source
@@ -46,9 +43,6 @@ jobs:
           docker-image: debian:${{ matrix.codename }}-slim
           artifacts-dir: ./artifacts
           source-dir: ./
-          main-repos: |
-            deb [trusted=yes] http://archive.debian.org/debian/ ${{ matrix.codename }} main contrib
-            deb [trusted=yes] http://archive.debian.org/debian-security/ ${{ matrix.codename }}/updates main
           before-build-hook: |
             debian/rules get-orig-source
             debian/rules publish-source
@@ -73,10 +67,6 @@ jobs:
           docker-image: debian:${{ matrix.codename }}-slim
           artifacts-dir: ./artifacts
           source-dir: ./
-          main-repos: |
-            deb [trusted=yes] http://archive.debian.org/debian/ ${{ matrix.codename }} main contrib
-            deb [trusted=yes] http://archive.debian.org/debian-security/ ${{ matrix.codename }}/updates main
-          buildpackage-opts: --build=binary --no-sign
           before-build-hook: |
             debian/rules get-orig-source
             debian/rules publish-source
@@ -103,12 +93,6 @@ jobs:
           host-arch: ${{ matrix.architecture }}
           artifacts-dir: ./artifacts
           source-dir: ./
-          main-repos: |
-            # These are intentionally given as two entries:
-            deb [trusted=yes] http://archive.debian.org/debian/ ${{ matrix.codename }} main contrib
-            deb [trusted=yes] http://archive.debian.org/debian/ ${{ matrix.codename }}-updates main contrib
-            deb [trusted=yes] http://archive.debian.org/debian-security/ ${{ matrix.codename }}/updates main
-          buildpackage-opts: --build=binary --no-sign
           before-build-hook: |
             debian/rules get-orig-source
             debian/rules publish-source
@@ -135,12 +119,6 @@ jobs:
           host-arch: ${{ matrix.architecture }}
           artifacts-dir: ./artifacts
           source-dir: ./
-          main-repos: |
-            # These are intentionally given as two entries:
-            deb [trusted=yes] http://archive.debian.org/debian/ ${{ matrix.codename }} main contrib
-            deb [trusted=yes] http://archive.debian.org/debian/ ${{ matrix.codename }}-updates main contrib
-            deb [trusted=yes] http://archive.debian.org/debian-security/ ${{ matrix.codename }}-security main
-          buildpackage-opts: --build=binary --no-sign
           before-build-hook: |
             debian/rules get-orig-source
             debian/rules publish-source
@@ -167,7 +145,6 @@ jobs:
           host-arch: ${{ matrix.architecture }}
           artifacts-dir: ./artifacts
           source-dir: ./
-          buildpackage-opts: --build=binary --no-sign
           before-build-hook: |
             debian/rules get-orig-source
             debian/rules publish-source
@@ -194,7 +171,6 @@ jobs:
           host-arch: ${{ matrix.architecture }}
           artifacts-dir: ./artifacts
           source-dir: ./
-          buildpackage-opts: --build=binary --no-sign
           before-build-hook: |
             debian/rules get-orig-source
             debian/rules publish-source
@@ -221,7 +197,6 @@ jobs:
           host-arch: ${{ matrix.architecture }}
           artifacts-dir: ./artifacts
           source-dir: ./
-          buildpackage-opts: --build=binary --no-sign
           before-build-hook: |
             debian/rules get-orig-source
             debian/rules publish-source

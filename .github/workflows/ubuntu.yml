@@ -70,7 +70,6 @@ jobs:
           docker-image: ubuntu:${{ matrix.codename }}
           artifacts-dir: ./artifacts
           source-dir: ./
-          buildpackage-opts: --build=binary --no-sign
           before-build-hook: |
             debian/rules get-orig-source
             debian/rules publish-source
@@ -97,7 +96,6 @@ jobs:
           host-arch: ${{ matrix.architecture }}
           artifacts-dir: ./artifacts
           source-dir: ./
-          buildpackage-opts: --build=binary --no-sign
           before-build-hook: |
             debian/rules get-orig-source
             debian/rules publish-source
@@ -124,7 +122,6 @@ jobs:
           host-arch: ${{ matrix.architecture }}
           artifacts-dir: ./artifacts
           source-dir: ./
-          buildpackage-opts: --build=binary --no-sign
           before-build-hook: |
             debian/rules get-orig-source
             debian/rules publish-source
@@ -151,7 +148,6 @@ jobs:
           host-arch: ${{ matrix.architecture }}
           artifacts-dir: ./artifacts
           source-dir: ./
-          buildpackage-opts: --build=binary --no-sign
           before-build-hook: |
             debian/rules get-orig-source
             debian/rules publish-source
@@ -178,7 +174,6 @@ jobs:
           host-arch: ${{ matrix.architecture }}
           artifacts-dir: ./artifacts
           source-dir: ./
-          buildpackage-opts: --build=binary --no-sign
           before-build-hook: |
             debian/rules get-orig-source
             debian/rules publish-source
@@ -205,7 +200,6 @@ jobs:
           host-arch: ${{ matrix.architecture }}
           artifacts-dir: ./artifacts
           source-dir: ./
-          buildpackage-opts: --build=binary --no-sign
           before-build-hook: |
             debian/rules get-orig-source
             debian/rules publish-source
