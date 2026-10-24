@@ -22,7 +22,6 @@ jobs:
           before-build-hook: |
             debian/rules get-orig-source
             debian/rules publish-source
-            debchange --controlmaint --local="+ci${{ github.run_id }}~${{ matrix.codename }}~git$(git rev-parse --short HEAD)" "CI build on ${{ matrix.codename }}"
           extra-build-deps: git unzip wget
       - name: List artifacts files
         run: |
@@ -127,7 +126,6 @@ jobs:
     strategy:
       matrix:
         codename: [buster]
-        architecture: [amd64]
     runs-on: ubuntu-latest
     steps:
       - name: checkout source code
@@ -138,7 +136,6 @@ jobs:
           DEB_BUILD_OPTIONS: noautodbgsym
         with:
           docker-image: debian/eol:${{ matrix.codename }}
-          host-arch: ${{ matrix.architecture }}
           artifacts-dir: ./artifacts
           source-dir: ./
           before-build-hook: |
