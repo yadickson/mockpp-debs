@@ -11,6 +11,11 @@ jobs:
     steps:
       - name: checkout source code
         uses: actions/checkout@v6
+      - run: |
+         sed -i "s/debhelper (>= 8)/debhelper (>= 6)/g" test/debian/control
+         echo "6" > test/debian/compat
+        shell: bash
+
       - name: Build Debian binary and source package for ${{ matrix.codename }}
         uses: yadickson/build-deb-action@v2
         env:
