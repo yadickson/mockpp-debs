@@ -40,6 +40,8 @@ jobs:
         uses: actions/checkout@v6
       - run: |
           sed -i "s/debhelper (>= 8)/debhelper (>= 7)/g" debian/control
+          sed -i "s#usr/lib/.*/#usr/lib/#g" debian/libmockpp36.install
+          sed -i "s#usr/lib/.*/#usr/lib/#g" debian/libmockpp-dev.install
           echo "7" > debian/compat
         shell: bash
       - name: Build Debian binary and source package for ${{ matrix.codename }}
