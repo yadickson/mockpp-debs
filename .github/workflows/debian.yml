@@ -45,7 +45,6 @@ jobs:
           before-build-hook: |
             debian/rules get-orig-source
             debian/rules publish-source
-            debchange --controlmaint --local="+ci${{ github.run_id }}~${{ matrix.codename }}~git$(git rev-parse --short HEAD)" "CI build on ${{ matrix.codename }}"
           extra-build-deps: git unzip wget
       - name: List artifacts files
         run: |
