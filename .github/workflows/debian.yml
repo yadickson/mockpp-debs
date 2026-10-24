@@ -15,7 +15,6 @@ jobs:
          sed -i "s/debhelper (>= 8)/debhelper (>= 6)/g" debian/control
          echo "6" > debian/compat
         shell: bash
-
       - name: Build Debian binary and source package for ${{ matrix.codename }}
         uses: yadickson/build-deb-action@v2
         env:
@@ -39,6 +38,10 @@ jobs:
     steps:
       - name: checkout source code
         uses: actions/checkout@v6
+      - run: |
+          sed -i "s/debhelper (>= 8)/debhelper (>= 7)/g" debian/control
+          echo "7" > debian/compat
+        shell: bash
       - name: Build Debian binary and source package for ${{ matrix.codename }}
         uses: yadickson/build-deb-action@v2
         env:
